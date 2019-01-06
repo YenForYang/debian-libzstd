@@ -1,0 +1,12 @@
+-g
+-Wformat
+-Wformat-security
+-D_FORTIFY_SOURCE=2
+-I.
+-I./common
+-DXXH_NAMESPACE=ZSTD_
+-I./legacy
+-DZSTD_LEGACY_SUPPORT=5
+-c
+-odecompress/zstd_decompress_block.o
+decompress/zstd_decompress_block.c

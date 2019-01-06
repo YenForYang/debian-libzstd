@@ -1,0 +1,16 @@
+-MMD
+-MP
+-MF
+main.Td
+-D_FORTIFY_SOURCE=2
+-I../../lib
+-I../../lib/common
+-I../../programs
+-I.
+-g
+-Wformat
+-Wformat-security
+-std=c++11
+-c
+main.cpp
+-omain.o

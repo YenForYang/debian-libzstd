@@ -1,0 +1,16 @@
+-MMD
+-MP
+-MF
+Pzstd.Td
+-D_FORTIFY_SOURCE=2
+-I../../lib
+-I../../lib/common
+-I../../programs
+-I.
+-g
+-Wformat
+-Wformat-security
+-std=c++11
+-c
+Pzstd.cpp
+-oPzstd.o

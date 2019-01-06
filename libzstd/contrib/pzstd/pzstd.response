@@ -1,0 +1,12 @@
+main.o
+../../programs/util.o
+Options.o
+Pzstd.o
+SkippableFrame.o
+../../lib/libzstd.a
+-g
+-Wformat
+-Wformat-security
+-Wl,-z,now
+-pthread
+-opzstd

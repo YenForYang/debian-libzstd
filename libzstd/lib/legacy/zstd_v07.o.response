@@ -1,0 +1,10 @@
+-O0
+-I.
+-I./common
+-DXXH_NAMESPACE=ZSTD_
+-I./legacy
+-DZSTD_LEGACY_SUPPORT=5
+-c
+-olegacy/zstd_v07.o
+legacy/zstd_v07.c
+-no-ipo

@@ -1,0 +1,13 @@
+Package: libzstd1-dbgsym
+Source: libzstd
+Version: 1.3.8+dfsg-2
+Auto-Built-Package: debug-symbols
+Architecture: amd64
+Maintainer: Debian Med Packaging Team <debian-med-packaging@lists.alioth.debian.org>
+Installed-Size: 52
+Depends: libzstd1 (= 1.3.8+dfsg-2)
+Section: debug
+Priority: optional
+Multi-Arch: same
+Description: debug symbols for libzstd1
+Build-Ids: 13a6c936846436ed2cb6747e99f6dbd61a67dc5c

@@ -1,0 +1,127 @@
+ dpkg-buildpackage -D -us -uc -ui -b -Jauto -Pnobiarch,nocheck,nodoc
+dpkg-buildpackage: info: source package libzstd
+dpkg-buildpackage: info: source version 1.3.8+dfsg-2
+dpkg-buildpackage: info: source distribution unstable
+dpkg-buildpackage: info: source changed by Alexandre Mestiashvili <mestia@debian.org>
+ dpkg-source --before-build .
+dpkg-buildpackage: info: host architecture amd64
+ fakeroot debian/rules clean
+dh clean
+   debian/rules override_dh_auto_clean
+make[1]: Entering directory '/dev/shm/apt/redo/libzstd'
+dh_auto_clean
+	make -j8 clean
+make[2]: Entering directory '/dev/shm/apt/redo/libzstd'
+Cleaning completed
+make[2]: Leaving directory '/dev/shm/apt/redo/libzstd'
+dh_auto_clean --sourcedirectory=contrib/pzstd
+	cd contrib/pzstd && make -j8 clean
+make[2]: Entering directory '/dev/shm/apt/redo/libzstd/contrib/pzstd'
+rm -f -f *.o pzstd *.Td *.d
+rm -f -f test/*.o test/*Test test/*.Td test/*.d
+rm -f -f utils/test/*.o utils/test/*Test utils/test/*.Td utils/test/*.d
+rm -f -f ../../programs/*.o ../../programs/*.Td ../../programs/*.d
+make -C ../../lib clean
+make[3]: Entering directory '/dev/shm/apt/redo/libzstd/lib'
+Cleaning library completed
+make[3]: Leaving directory '/dev/shm/apt/redo/libzstd/lib'
+Cleaning completed
+make[2]: Leaving directory '/dev/shm/apt/redo/libzstd/contrib/pzstd'
+make[1]: Leaving directory '/dev/shm/apt/redo/libzstd'
+   dh_clean
+	rm -f debian/debhelper-build-stamp
+	rm -rf debian/.debhelper/
+	rm -f -- debian/libzstd-dev.substvars debian/libzstd1.substvars debian/zstd.substvars debian/libzstd1-udeb.substvars debian/files
+	rm -fr -- debian/libzstd-dev/ debian/tmp/ debian/libzstd1/ debian/zstd/ debian/libzstd1-udeb/
+	find .  \( \( \
+		\( -path .\*/.git -o -path .\*/.svn -o -path .\*/.bzr -o -path .\*/.hg -o -path .\*/CVS -o -path .\*/.pc -o -path .\*/_darcs \) -prune -o -type f -a \
+	        \( -name '#*#' -o -name '.*~' -o -name '*~' -o -name DEADJOE \
+		 -o -name '*.orig' -o -name '*.rej' -o -name '*.bak' \
+		 -o -name '.*.orig' -o -name .*.rej -o -name '.SUMS' \
+		 -o -name TAGS -o \( -path '*/.deps/*' -a -name '*.P' \) \
+		\) -exec rm -f {} + \) -o \
+		\( -type d -a -name autom4te.cache -prune -exec rm -rf {} + \) \)
+FAKEROOTKEY=1615760489 LD_LIBRARY_PATH= LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libfakeroot/libfakeroot-sysv.so debian/rules clean
+ debian/rules build
+dh build
+   dh_update_autotools_config
+   dh_autoreconf
+   dh_auto_configure
+   debian/rules override_dh_auto_build
+make[1]: Entering directory '/dev/shm/apt/redo/libzstd'
+dh_auto_build
+	make -j8 "INSTALL=install --strip-program=true"
+make[2]: Entering directory '/dev/shm/apt/redo/libzstd'
+make[3]: Entering directory '/dev/shm/apt/redo/libzstd/lib'
+make[3]: Entering directory '/dev/shm/apt/redo/libzstd/programs'
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o common/debug.o common/debug.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o common/entropy_common.o common/entropy_common.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o common/error_private.o common/error_private.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o common/fse_decompress.o common/fse_decompress.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o common/pool.o common/pool.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o common/threading.o common/threading.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o common/xxhash.o common/xxhash.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o common/zstd_common.o common/zstd_common.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o compress/fse_compress.o compress/fse_compress.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o compress/hist.o compress/hist.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o compress/huf_compress.o compress/huf_compress.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o compress/zstd_compress.o compress/zstd_compress.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o compress/zstd_double_fast.o compress/zstd_double_fast.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o compress/zstd_fast.o compress/zstd_fast.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o compress/zstd_lazy.o compress/zstd_lazy.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security -DBACKTRACE_ENABLE=0  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -I../lib/common -I../lib/compress -I../lib/dictBuilder -DXXH_NAMESPACE=ZSTD_ -I../lib/legacy -DZSTD_MULTITHREAD -DZSTD_GZCOMPRESS -DZSTD_GZDECOMPRESS -DZSTD_LZMACOMPRESS -DZSTD_LZMADECOMPRESS -DZSTD_LZ4COMPRESS -DZSTD_LZ4DECOMPRESS -DZSTD_LEGACY_SUPPORT=5  -c -o zstdcli.o zstdcli.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o compress/zstd_ldm.o compress/zstd_ldm.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o compress/zstd_opt.o compress/zstd_opt.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o compress/zstdmt_compress.o compress/zstdmt_compress.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o decompress/huf_decompress.o decompress/huf_decompress.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security -DBACKTRACE_ENABLE=0  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -I../lib/common -I../lib/compress -I../lib/dictBuilder -DXXH_NAMESPACE=ZSTD_ -I../lib/legacy -DZSTD_MULTITHREAD -DZSTD_GZCOMPRESS -DZSTD_GZDECOMPRESS -DZSTD_LZMACOMPRESS -DZSTD_LZMADECOMPRESS -DZSTD_LZ4COMPRESS -DZSTD_LZ4DECOMPRESS -DZSTD_LEGACY_SUPPORT=5  -c -o util.o util.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security -DBACKTRACE_ENABLE=0  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -I../lib/common -I../lib/compress -I../lib/dictBuilder -DXXH_NAMESPACE=ZSTD_ -I../lib/legacy -DZSTD_MULTITHREAD -DZSTD_GZCOMPRESS -DZSTD_GZDECOMPRESS -DZSTD_LZMACOMPRESS -DZSTD_LZMADECOMPRESS -DZSTD_LZ4COMPRESS -DZSTD_LZ4DECOMPRESS -DZSTD_LEGACY_SUPPORT=5  -c -o fileio.o fileio.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o decompress/zstd_ddict.o decompress/zstd_ddict.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o decompress/zstd_decompress.o decompress/zstd_decompress.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o decompress/zstd_decompress_block.o decompress/zstd_decompress_block.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security -DBACKTRACE_ENABLE=0  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -I../lib/common -I../lib/compress -I../lib/dictBuilder -DXXH_NAMESPACE=ZSTD_ -I../lib/legacy -DZSTD_MULTITHREAD -DZSTD_GZCOMPRESS -DZSTD_GZDECOMPRESS -DZSTD_LZMACOMPRESS -DZSTD_LZMADECOMPRESS -DZSTD_LZ4COMPRESS -DZSTD_LZ4DECOMPRESS -DZSTD_LEGACY_SUPPORT=5  -c -o benchfn.o benchfn.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security -DBACKTRACE_ENABLE=0  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -I../lib/common -I../lib/compress -I../lib/dictBuilder -DXXH_NAMESPACE=ZSTD_ -I../lib/legacy -DZSTD_MULTITHREAD -DZSTD_GZCOMPRESS -DZSTD_GZDECOMPRESS -DZSTD_LZMACOMPRESS -DZSTD_LZMADECOMPRESS -DZSTD_LZ4COMPRESS -DZSTD_LZ4DECOMPRESS -DZSTD_LEGACY_SUPPORT=5  -c -o benchzstd.o benchzstd.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o deprecated/zbuff_common.o deprecated/zbuff_common.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o deprecated/zbuff_compress.o deprecated/zbuff_compress.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o deprecated/zbuff_decompress.o deprecated/zbuff_decompress.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o dictBuilder/cover.o dictBuilder/cover.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security -DBACKTRACE_ENABLE=0  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -I../lib/common -I../lib/compress -I../lib/dictBuilder -DXXH_NAMESPACE=ZSTD_ -I../lib/legacy -DZSTD_MULTITHREAD -DZSTD_GZCOMPRESS -DZSTD_GZDECOMPRESS -DZSTD_LZMACOMPRESS -DZSTD_LZMADECOMPRESS -DZSTD_LZ4COMPRESS -DZSTD_LZ4DECOMPRESS -DZSTD_LEGACY_SUPPORT=5  -c -o datagen.o datagen.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security -DBACKTRACE_ENABLE=0  -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -I../lib/common -I../lib/compress -I../lib/dictBuilder -DXXH_NAMESPACE=ZSTD_ -I../lib/legacy -DZSTD_MULTITHREAD -DZSTD_GZCOMPRESS -DZSTD_GZDECOMPRESS -DZSTD_LZMACOMPRESS -DZSTD_LZMADECOMPRESS -DZSTD_LZ4COMPRESS -DZSTD_LZ4DECOMPRESS -DZSTD_LEGACY_SUPPORT=5  -c -o dibio.o dibio.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o dictBuilder/divsufsort.o dictBuilder/divsufsort.c
+==> building with threading support
+==> building zstd with .gz compression support
+==> building zstd with .xz/.lzma compression support
+==> building zstd with .lz4 compression support
+icc.pl -Wdate-time -D_FORTIFY_SOURCE=2 -I../lib -I../lib/common -I../lib/compress -I../lib/dictBuilder -DXXH_NAMESPACE=ZSTD_ -I../lib/legacy -DZSTD_MULTITHREAD -DZSTD_GZCOMPRESS -DZSTD_GZDECOMPRESS -DZSTD_LZMACOMPRESS -DZSTD_LZMADECOMPRESS -DZSTD_LZ4COMPRESS -DZSTD_LZ4DECOMPRESS -DZSTD_LEGACY_SUPPORT=5 -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security -DBACKTRACE_ENABLE=0  -Wl,-z,now -pthread -lz -llzma -llz4  ../lib/common/debug.c ../lib/common/entropy_common.c ../lib/common/error_private.c ../lib/common/fse_decompress.c ../lib/common/pool.c ../lib/common/threading.c ../lib/common/xxhash.c ../lib/common/zstd_common.c ../lib/compress/fse_compress.c ../lib/compress/hist.c ../lib/compress/huf_compress.c ../lib/compress/zstd_compress.c ../lib/compress/zstd_double_fast.c ../lib/compress/zstd_fast.c ../lib/compress/zstd_lazy.c ../lib/compress/zstd_ldm.c ../lib/compress/zstd_opt.c ../lib/compress/zstdmt_compress.c ../lib/decompress/huf_decompress.c ../lib/decompress/zstd_ddict.c ../lib/decompress/zstd_decompress.c ../lib/decompress/zstd_decompress_block.c ../lib/dictBuilder/cover.c ../lib/dictBuilder/divsufsort.c ../lib/dictBuilder/fastcover.c ../lib/dictBuilder/zdict.c ../lib/legacy/zstd_v05.c ../lib/legacy/zstd_v06.c ../lib/legacy/zstd_v07.c zstdcli.o util.o fileio.o benchfn.o benchzstd.o datagen.o dibio.o  -o zstd -Wl,-z,now -pthread -lz -llzma -llz4 
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o dictBuilder/fastcover.o dictBuilder/fastcover.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o dictBuilder/zdict.o dictBuilder/zdict.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o legacy/zstd_v05.o legacy/zstd_v05.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o legacy/zstd_v06.o legacy/zstd_v06.c
+icc.pl -g -O2 -fdebug-prefix-map=/dev/shm/apt/redo/libzstd=. -Wformat -march=native -pipe -Wformat-security   -Wdate-time -D_FORTIFY_SOURCE=2 -I. -I./common -DXXH_NAMESPACE=ZSTD_ -I./legacy -DZSTD_LEGACY_SUPPORT=5  -c -o legacy/zstd_v07.o legacy/zstd_v07.c
+compiling dynamic library 1.3.8
+icc: error #10106: Fatal error in /opt/intel/compilers_and_libraries_2019.1.144/linux/bin/intel64/mcpcom, terminated by kill signal
+compilation aborted for compress/zstd_compress.c (code 1)
+make[3]: *** [<builtin>: compress/zstd_compress.o] Error 1
+make[3]: *** Waiting for unfinished jobs....
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+make[3]: Leaving directory '/dev/shm/apt/redo/libzstd/programs'
+cp programs/zstd .
+icc: error #10106: Fatal error in /opt/intel/compilers_and_libraries_2019.1.144/linux/bin/intel64/mcpcom, terminated by kill signal
+compilation aborted for legacy/zstd_v05.c (code 1)
+make[3]: *** [<builtin>: legacy/zstd_v05.o] Error 1
+icc: error #10106: Fatal error in /opt/intel/compilers_and_libraries_2019.1.144/linux/bin/intel64/mcpcom, terminated by kill signal
+compilation aborted for legacy/zstd_v06.c (code 1)
+make[3]: *** [<builtin>: legacy/zstd_v06.o] Error 1
+icc: error #10106: Fatal error in /opt/intel/compilers_and_libraries_2019.1.144/linux/bin/intel64/mcpcom, terminated by kill signal
+compilation aborted for legacy/zstd_v07.c (code 1)
+make[3]: *** [<builtin>: legacy/zstd_v07.o] Error 1
+x86_64-linux-gnu-ld: /lib/x86_64-linux-gnu/libz.so.1: no version information available (required by /usr/lib/x86_64-linux-gnu/libbfd-2.31.1-system.so)
+creating versioned links
+make[3]: Leaving directory '/dev/shm/apt/redo/libzstd/lib'
+make[2]: *** [Makefile:49: lib-release] Error 2
+make[2]: Leaving directory '/dev/shm/apt/redo/libzstd'
+dh_auto_build: make -j8 "INSTALL=install --strip-program=true" returned exit code 2
+make[1]: *** [debian/rules:28: override_dh_auto_build] Error 2
+make[1]: Leaving directory '/dev/shm/apt/redo/libzstd'
+make: *** [debian/rules:16: build] Error 2
+dpkg-buildpackage: error: debian/rules build subprocess returned exit status 2

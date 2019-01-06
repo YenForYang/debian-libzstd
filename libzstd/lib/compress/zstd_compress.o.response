@@ -1,0 +1,9 @@
+-O3
+-I.
+-I./common
+-DXXH_NAMESPACE=ZSTD_
+-I./legacy
+-DZSTD_LEGACY_SUPPORT=5
+-c
+-ocompress/zstd_compress.o
+compress/zstd_compress.c
